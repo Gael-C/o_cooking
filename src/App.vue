@@ -1,9 +1,20 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+    <router-view/>
+
+    <nav class="navbar-fixed navbar-expand">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <router-link to="/" class="link">Liste des recettes</router-link> 
+        <router-link to="/inscription" class="link">Inscription</router-link> 
+        <router-link to="/connexion" class="link">Connexion</router-link> 
+
+      </div>
+    </div>
+  </div>
+</nav>
+ 
+
 </template>
 
 <style>
@@ -16,7 +27,7 @@
 }
 
 nav {
-  padding: 30px;
+  padding: 0px;
 }
 
 nav a {
@@ -26,5 +37,9 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+.link{
+  margin-left: 10px;
+  margin-right: 20px;
 }
 </style>
