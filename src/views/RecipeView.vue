@@ -1,33 +1,23 @@
 <template>
-    <div class="recipe">
+    <h1>{{ recipe.name }}</h1>
+    <p> {{ recipe.description }}</p>
+    <p> {{ recipe?.user?.username }}</p>
+</template>
 
-      <form>
-      <h1 style="font-weight: bold;">Créer une recette</h1>
-      <Input label="titre" id="titre" nom="Titre" placeholder="Titre de la recette"/>
 
-      <Input label="cuisson" id="cuisson" nom="Temps de cuisson" placeholder="10 minutes"/>
+<script>
+export default {
 
-      <Input label="cout" id="cout" nom="Coût par personne (€)" placeholder="1€"/>
-
-      <Textarea id="recette" forLabel="recette" nom="Recette" placeholder="Le texte de la recette" />
-
-      <button type="submit" class="btn btn-primary">Sauvegarder</button>
-
-    </form>
-    </div>
-  </template>
-  
-  <script>
-  // @ is an alias to /src
-  import Input from '@/components/Input.vue'
-  import Textarea from '@/components/Textarea.vue'
-  
-  export default {
-    name: 'RecipeView',
-    components: {
-      Input,
-      Textarea
+    data() {
+        return {
+            recipe: {}
+        }
+    },
+    async mounted() {
+        const res = await fetch(`https://www.pierrebriffaux.com/recipes/${this.$route.params.id}`);
+        const recipes = await res.json();
+        this.recipe = recipes;
     }
-  }
-  </script>
-  
+}
+
+</script>

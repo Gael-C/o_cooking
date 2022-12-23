@@ -2,10 +2,12 @@
   <div class="card">
     <div class="row h-100 justify-content-center align-items-center">
       <div class="card col-12" style="width: 13rem">
-        <img :src="src" class="card-img-top" alt="..." />
+        <img src='https://picsum.photos/300/200' class="card-img-top" alt="..." />
         <div class="card-body">
-          <h5 class="card-title">{{ titre }}</h5>
-          <p class="card-text">{{ description }}</p>
+          <router-link :to="{ name: 'recipe', params: { id } }">
+            <h5 class="card-title">{{ name }}</h5>
+          </router-link>
+          <p class="card-text">Par {{ username }}</p>
         </div>
       </div>
     </div>
@@ -16,9 +18,18 @@
 export default {
   name: 'Card',
   props: {
-    titre: String,
-    description: String,
-    src: String
+    id: {
+      type: Number,
+      required: true
+    },
+    name: {
+      type: String,
+      required: true
+    },
+    username: {
+      type: String,
+      required: true
+    }
   }
 }
 </script>
