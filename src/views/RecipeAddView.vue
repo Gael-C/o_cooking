@@ -1,7 +1,7 @@
 <template>
     <div class="recipe">
 
-      <form>
+      <form @submit.prevent="$store.dispatch('createRecipe', newRecipe)">
       <h1 style="font-weight: bold;">Créer une recette</h1>
       <Input label="titre" id="titre" nom="Titre" placeholder="Titre de la recette"/>
 
@@ -27,7 +27,11 @@
     components: {
       Input,
       Textarea
+    },
+    data() {
+      // return newRecipe = '' 
     }
+  
   }
   </script>
   

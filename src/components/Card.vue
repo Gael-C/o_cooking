@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div>
     <div class="row h-100 justify-content-center align-items-center">
       <div class="card col-12" style="width: 13rem">
         <img src='https://picsum.photos/300/200' class="card-img-top" alt="..." />
